@@ -1,3 +1,6 @@
+# Default install directory
+install/
+
 # Prerequisites
 *.d
 
