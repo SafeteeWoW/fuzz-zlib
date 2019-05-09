@@ -8,7 +8,7 @@
 
 #include "zlib.h"
 
-static Bytef buffer[256 * 1024] = { 0 };
+static Bytef buffer[1024 * 1024] = { 0 };
 
 // Entry point for LibFuzzer.
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
