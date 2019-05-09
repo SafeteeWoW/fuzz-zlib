@@ -13,6 +13,8 @@ static Bytef buffer[1024 * 1024] = { 0 };
 // Entry point for LibFuzzer.
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
   uLongf buffer_length = static_cast<uLongf>(sizeof(buffer));
+  // NOTE: uncompress() can decompress both zlib and gzip format
+  // magic header is automatically detected.
   if (Z_OK != uncompress(buffer, &buffer_length, data,
                          static_cast<uLong>(size))) {
     return 0;

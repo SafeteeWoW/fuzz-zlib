@@ -1,6 +1,9 @@
 # Default output directory, ignore for now
 outputs/
 
+# Default log directory
+logs/
+
 # Default install directory
 install/
 
