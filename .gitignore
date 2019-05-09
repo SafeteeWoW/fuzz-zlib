@@ -1,3 +1,6 @@
+# Default output directory, ignore for now
+outputs/
+
 # Default install directory
 install/
 
