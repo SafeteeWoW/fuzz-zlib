@@ -38,10 +38,11 @@ cd "${proj_root}"
 
 mkdir -p "$PREFIX/bin"
 
-$CXX $CXXFLAGS -g -fsanitize=fuzzer -std=c++11 -I "$PREFIX/include" \
-    "${proj_root}/zlib_uncompress_fuzzer.cc" -o "$PREFIX/bin/zlib_uncompress_fuzzer" \
+for f in $(find "${proj_root}" -name '*_fuzzer.cc'); do
+    b="$(basename -s .cc "$f")"
+    $CC $CFLAGS -g -fsanitize=fuzzer -I "$PREFIX/include" "$f" -o "$PREFIX/bin/$b" \
     "$PREFIX/lib/libz.a"
-
+done
 
 for f in $(find "${proj_root}" -name '*_fuzzer.c'); do
     b="$(basename -s .c "$f")"
